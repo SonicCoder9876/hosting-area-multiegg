@@ -149,6 +149,7 @@ read -p "Choose:" n
 }
 if [ -f server.jar ] 
 then
+   clear
    display1
    bootJavaServer
 else
