@@ -152,6 +152,8 @@ case $n in
        wget https://data-2.cdnx.fun/mc/vanilla-1.19.3.jar
        mv vanilla-1.19.3.jar server.jar
        echo "Done! Script will end on 30 seconds, when it does, start up the server again!"
+       sleep 30
+       ;;
      *)
        sleep 1
        clear
@@ -159,7 +161,7 @@ case $n in
        exit
        ;;
     esac
-
+    ;;
 
    2)
      sleep 2
