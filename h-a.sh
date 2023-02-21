@@ -1,6 +1,6 @@
 #!/bin/bash
+sudo apt install unzip -y
 clear
-sleep 2
 function display1 {
 echo "
 ===============================================================================
@@ -14,8 +14,7 @@ echo "
 =                                                                             =
 ===============================================================================
 "
-sleep 2
-clear
+
 sleep 1
 echo "Minecraft server detected, starting it up..."
 sleep 1
@@ -40,50 +39,135 @@ case $n in
      echo "Vanilla selected, proceeding..."
      sleep 2
      echo "Select version:
-     [1] 1.8.8   [4] 1.18.2
-     [2] 1.12.2  [5] 1.19.3
-     [3] 1.14.2  [6] 1.15.2"
+     [1] 1.8.9       [6] 1.13.2    [11] 1.18.2
+     [2] 1.9.4       [7] 1.14.4    [12] 1.19.3
+     [3] 1.10.2      [8] 1.15.2
+     [4] 1.11.2      [9] 1.16.5
+     [5] 1.12.2     [10] 1.17.1                "
      read -p "Version: " n
      case $n in
      1)
-       echo "Downloading 1.8.8..."
-       sleep 2
-       exit
+       clear
+       sleep 1
+       echo "1.8.9 Selected, downloading..."
+       wget https://data-2.cdnx.fun/mc/vanilla-1.8.9.jar
+       mv vanilla-1.8.9.jar server.jar
+       echo "Done! Script will end on 30 seconds, when it does, start up the server again!"
+       sleep 30
        ;;
      2)
-       echo "Downloading 1.12.2..."
-       sleep 2
-       exit
+       clear
+       sleep 1
+       echo "1.9.4 Selected, downloading..."
+       wget https://data-2.cdnx.fun/mc/vanilla-1.9.4.jar
+       mv vanilla-1.9.4.jar server.jar
+       echo "Done! Script will end on 30 seconds, when it does, start up the server again!"
+       sleep 30
        ;;
      3)
-       echo "Downloading 1.14.2..."
-       sleep 2
-       exit
+       clear
+       sleep 1
+       echo "1.10.2 Selected, downloading..."
+       wget https://data-2.cdnx.fun/mc/vanilla-1.10.2.jar
+       mv vanilla-1.9.4.jar server.jar
+       echo "Done! Script will end on 30 seconds, when it does, start up the server again!"
+       sleep 30
        ;;
      4)
-       echo "Downloading 1.18.2..."
-       sleep 2
-       exit
+       clear 
+       sleep 1
+       echo "1.11.2 Selected, downloading..."
+       wget https://data-2.cdnx.fun/mc/vanilla-1.11.2.jar
+       mv vanilla-1.11.2.jar server.jar
+       echo "Done! Script will end on 30 seconds, when it does, start up the server again!"
+       sleep 30
        ;;
      5)
-       echo "Downloading 1.19.3..."
-       sleep 2
-       exit
+       clear
+       sleep 1 
+       echo "1.12.2 Selected, downloading..."
+       wget https://data-2.cdnx.fun/mc/vanilla-1.12.2.jar
+       mv vanilla-1.12.2.jar server.jar
+       echo "Done! Script will end on 30 seconds, when it does, start up the server again!"
+       sleep 30
        ;;
      6)
-       echo "Downloading 1.15.2..."
-       sleep 2
+       clear
+       sleep 1
+       echo "1.13.2 Selected, downloading..."
+       wget https://data-2.cdnx.fun/mc/vanilla-1.13.2.jar
+       mv vanilla-1.13.2.jar server.jar
+       echo "Done! Script will end on 30 seconds, when it does, start up the server again!"
+       sleep 30
+       ;;
+     7) 
+       clear 
+       sleep 1
+       echo "1.14.4 Selected, downloading..."
+       wget https://data-2.cdnx.fun/mc/vanilla-1.14.4.jar
+       mv vanilla-1.14.4.jar server.jar
+       echo "Done! Script will end on 30 seconds, when it does, start up the server again!"
+       sleep 30
+       ;;
+     8)
+       clear 
+       sleep 1
+       echo "1.15.2 Selected, downloading..."
+       wget https://data-2.cdnx.fun/mc/vanilla-1.15.2.jar
+       mv vanilla-1.15.2.jar server.jar
+       echo "Done! Script will end on 30 seconds, when it does, start up the server again!"
+       sleep 30
+       ;;
+     9)
+       clear 
+       sleep 1
+       echo "1.16.5 Selected, downloading..."
+       wget https://data-2.cdnx.fun/mc/vanilla-1.16.5.jar
+       mv vanilla-1.16.5 server.jar
+       echo "Done! Script will end on 30 seconds, when it does, start up the server again!"
+       sleep 30
+       ;;
+     10)
+       clear
+       sleep 1
+       echo "1.17.1 Selected, downloading..."
+       wget https://data-2.cdnx.fun/mc/vanilla-1.17.1.jar
+       mv vanilla-1.17.1.jar server.jar
+       echo "Done! Script will end on 30 seconds, when it does, start up the server again!"
+       sleep 30
+       ;;
+     11)
+       clear 
+       sleep 1
+       echo "1.18.2 Selected, downloading..."
+       wget https://data-2.cdnx.fun/mc/vanilla-1.18.2
+       mv vanilla-1.18.2.jar server.jar
+       echo "Done! Script will end on 30 seconds, when it does, start up the server again!"
+       sleep 30
+       ;;
+     12)
+       clear
+       sleep 1
+       echo "1.19.3 Selected, downloading..."
+       wget https://data-2.cdnx.fun/mc/vanilla-1.19.3.jar
+       mv vanilla-1.19.3.jar server.jar
+       echo "Done! Script will end on 30 seconds, when it does, start up the server again!"
+     *)
+       sleep 1
+       clear
+       echo "Invalid option, exiting..."
        exit
        ;;
-     esac
-     ;;
+    esac
+
+
    2)
      sleep 2
      clear
      sleep 1
      echo "Paper selected, proceeding..."
      sleep 2
-     
+     exit
      ;;
    3)
      echo "Forge selected, proceeding..."
@@ -149,7 +233,6 @@ read -p "Choose:" n
 }
 if [ -f server.jar ] 
 then
-   clear
    display1
    bootJavaServer
 else
