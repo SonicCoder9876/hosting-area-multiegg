@@ -58,7 +58,7 @@ else
    java="openjdk-16-jre-headless"
    ;;
   esac
-  sudo apt install $java
+  apt install $java
   fi
 }
 function display1 {
