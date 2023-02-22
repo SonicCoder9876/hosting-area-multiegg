@@ -292,7 +292,7 @@ case $n in
    clear
    installJava
    echo "Process ended, restarting script..."
-   clear
+   sleep 15
    exit
    ;;
  4)
