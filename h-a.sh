@@ -1,6 +1,66 @@
 #!/bin/bash
 sudo apt install unzip -y
 clear
+function installJava {
+
+if which java >/dev/null; then
+echo "Error: Java already installed!, do you want to uninstall it? (Y/N)"
+read -p "Choose: " n
+case $n in
+y)
+  echo "Uninstalling java..."
+  sudo apt-get remove java
+  sleep 1
+  clear
+  echo "Java uninstalled, start the server again to install java."
+  sleep 2
+  exit
+  ;;
+n)
+  clear
+  sleep 3
+  echo "Proceeding with the script..."
+  sleep 2
+  clear
+  maindisplay
+  selection
+  ;;
+esac
+else
+ echo "Select java version:
+ [1] 8 (1.2.5 - 1.12.2)       [3] 16 (1.17)
+ [2] 11 (1.13.2 - 1.16.5)     [4] 17 (1.18 - 1.19.3)"
+
+ read -p "Choose: " n
+ case $n in
+ 1)
+   clear 
+   sleep 2
+   echo "Java 8 selected, installing it..."
+   java="opendjdk-8-jre-headless"
+   ;;
+ 2)
+   clear
+   sleep 2
+   echo "Java 11 selected, installing it..."
+   java="openjdk-11-jre-headless"
+   ;;
+  3)
+   clear
+   sleep 2
+   echo "Java 16 selected, installing it..."
+   java="openjdk-16-jre-headless"
+   ;;
+  4)
+   clear
+   sleep 2
+   echo "Java 17 selected, installing it..."
+   java="openjdk-16-jre-headless"
+   ;;
+  esac
+  sudo apt install $java
+  fi
+}
 function display1 {
 echo "
 ===============================================================================
@@ -14,9 +74,6 @@ echo "
 =                                                                             =
 ===============================================================================
 "
-
-sleep 1
-echo "Minecraft server detected, starting it up..."
 sleep 1
 }
 function selection {
@@ -50,91 +107,111 @@ case $n in
        clear
        sleep 1
        echo "1.8.9 Selected, downloading..."
-       wget https://data-2.cdnx.fun/mc/vanilla-1.8.9.jar
+       wget -q --show-progress https://data-2.cdnx.fun/mc/vanilla-1.8.9.jar
        mv vanilla-1.8.9.jar server.jar
-       echo "Done! Script will end on 30 seconds, when it does, start up the server again!"
-       sleep 30
+       echo "Proceeding to java installation..."
+       clear
+       sleep 2
+       installJava
        ;;
      2)
        clear
        sleep 1
        echo "1.9.4 Selected, downloading..."
-       wget https://data-2.cdnx.fun/mc/vanilla-1.9.4.jar
+       wget -q --show-progress https://data-2.cdnx.fun/mc/vanilla-1.9.4.jar
        mv vanilla-1.9.4.jar server.jar
-       echo "Done! Script will end on 30 seconds, when it does, start up the server again!"
-       sleep 30
+       echo "Proceeding to java installation..."
+       clear
+       sleep 2
+       installJava
        ;;
      3)
        clear
        sleep 1
        echo "1.10.2 Selected, downloading..."
-       wget https://data-2.cdnx.fun/mc/vanilla-1.10.2.jar
+       wget -q --show-progress https://data-2.cdnx.fun/mc/vanilla-1.10.2.jar
        mv vanilla-1.9.4.jar server.jar
-       echo "Done! Script will end on 30 seconds, when it does, start up the server again!"
-       sleep 30
+       echo "Proceeding to java installation..."
+       clear
+       sleep 2
+       installJava
        ;;
      4)
        clear 
        sleep 1
        echo "1.11.2 Selected, downloading..."
-       wget https://data-2.cdnx.fun/mc/vanilla-1.11.2.jar
+       wget -q --show-progress https://data-2.cdnx.fun/mc/vanilla-1.11.2.jar
        mv vanilla-1.11.2.jar server.jar
-       echo "Done! Script will end on 30 seconds, when it does, start up the server again!"
-       sleep 30
+       echo "Proceeding to java installation..."
+       clear
+       sleep 2
+       installJava
        ;;
      5)
        clear
        sleep 1 
        echo "1.12.2 Selected, downloading..."
-       wget https://data-2.cdnx.fun/mc/vanilla-1.12.2.jar
+       wget -q --show-progress https://data-2.cdnx.fun/mc/vanilla-1.12.2.jar
        mv vanilla-1.12.2.jar server.jar
-       echo "Done! Script will end on 30 seconds, when it does, start up the server again!"
-       sleep 30
+       echo "Proceeding to java installation..."
+       clear
+       sleep 2
+       installJava
        ;;
      6)
        clear
        sleep 1
        echo "1.13.2 Selected, downloading..."
-       wget https://data-2.cdnx.fun/mc/vanilla-1.13.2.jar
+       wget -q --show-progress https://data-2.cdnx.fun/mc/vanilla-1.13.2.jar
        mv vanilla-1.13.2.jar server.jar
-       echo "Done! Script will end on 30 seconds, when it does, start up the server again!"
-       sleep 30
+       echo "Proceeding to java installation..."
+       clear
+       sleep 2
+       installJava
        ;;
      7) 
        clear 
        sleep 1
        echo "1.14.4 Selected, downloading..."
-       wget https://data-2.cdnx.fun/mc/vanilla-1.14.4.jar
+       wget -q --show-progress https://data-2.cdnx.fun/mc/vanilla-1.14.4.jar
        mv vanilla-1.14.4.jar server.jar
-       echo "Done! Script will end on 30 seconds, when it does, start up the server again!"
-       sleep 30
+       echo "Procceding to java installation..."
+       clear
+       sleep 2
+       installJava
        ;;
      8)
        clear 
        sleep 1
        echo "1.15.2 Selected, downloading..."
-       wget https://data-2.cdnx.fun/mc/vanilla-1.15.2.jar
+       wget -q --show-progress https://data-2.cdnx.fun/mc/vanilla-1.15.2.jar
        mv vanilla-1.15.2.jar server.jar
-       echo "Done! Script will end on 30 seconds, when it does, start up the server again!"
-       sleep 30
+       echo "Proceeding to java installation..."
+       clear
+       sleep 2
+       installJava
        ;;
      9)
        clear 
        sleep 1
        echo "1.16.5 Selected, downloading..."
-       wget https://data-2.cdnx.fun/mc/vanilla-1.16.5.jar
+       wget -q --show-progress https://data-2.cdnx.fun/mc/vanilla-1.16.5.jar
        mv vanilla-1.16.5.jar server.jar
-       echo "Done! Script will end on 30 seconds, when it does, start up the server again!"
-       sleep 30
+       echo "Proceeding to java installation..."
+       clear
+       sleep 2
+       installJava
        ;;
      10)
        clear
        sleep 1
        echo "1.17.1 Selected, downloading..."
-       wget https://data-2.cdnx.fun/mc/vanilla-1.17.1.jar
+       wget -q --show-progress https://data-2.cdnx.fun/mc/vanilla-1.17.1.jar
        mv vanilla-1.17.1.jar server.jar
-       echo "Done! Script will end on 30 seconds, when it does, start up the server again!"
-       sleep 30
+       echo "Proceeding to java installation..."
+       clear
+       sleep 2
+       installJava
        ;;
      11)
        clear 
@@ -142,17 +219,21 @@ case $n in
        echo "1.18.2 Selected, downloading..."
        wget https://data-2.cdnx.fun/mc/vanilla-1.18.2
        mv vanilla-1.18.2.jar server.jar
-       echo "Done! Script will end on 30 seconds, when it does, start up the server again!"
-       sleep 30
+       echo "Proceeding to java installation..."
+       clear
+       sleep 2
+       installJava
        ;;
      12)
        clear
        sleep 1
        echo "1.19.3 Selected, downloading..."
-       wget https://data-2.cdnx.fun/mc/vanilla-1.19.3.jar
+       wget -q --show-progress https://data-2.cdnx.fun/mc/vanilla-1.19.3.jar
        mv vanilla-1.19.3.jar server.jar
-       echo "Done! Script will end on 30 seconds, when it does, start up the server again!"
-       sleep 30
+       echo "Proceeding to java installation..."
+       clear
+       sleep 2
+       installJava
        ;;
      *)
        sleep 1
@@ -201,7 +282,23 @@ case $n in
  2)
    echo "Not Available Yet. Restarting..."
    sleep 2
+   clear
    bash h-a.sh
+   ;;
+ 3)
+   clear
+   sleep 2
+   echo "Starting Java installation/uninstallation Process..."
+   installJava
+   echo "Process ended, restarting script..."
+   clear 
+   bash h-a.sh
+   ;;
+ 4)
+   clear
+   sleep 1
+   echo "Exitting..."
+   exit
    ;;
 esac
 }
@@ -228,7 +325,8 @@ echo "Done!"
 echo "Select an game:
 [1] Minecraft
 [2] Terraria (NOT AVAILABLE YET)
-[3] Exit"
+[3] Install/Uninstall Java
+[4] Exit"
 echo ""
 selection
 read -p "Choose:" n
@@ -236,6 +334,7 @@ read -p "Choose:" n
 if [ -f server.jar ] 
 then
    display1
+   echo "Minecraft Java detected, starting it up..."
    bootJavaServer
 else
   maindisplay
