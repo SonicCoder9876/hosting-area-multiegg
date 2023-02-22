@@ -123,7 +123,7 @@ case $n in
        sleep 1
        echo "1.16.5 Selected, downloading..."
        wget https://data-2.cdnx.fun/mc/vanilla-1.16.5.jar
-       mv vanilla-1.16.5 server.jar
+       mv vanilla-1.16.5.jar server.jar
        echo "Done! Script will end on 30 seconds, when it does, start up the server again!"
        sleep 30
        ;;
