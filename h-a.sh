@@ -289,10 +289,11 @@ case $n in
    clear
    sleep 2
    echo "Starting Java installation/uninstallation Process..."
+   clear
    installJava
    echo "Process ended, restarting script..."
-   clear 
-   bash h-a.sh
+   clear
+   exit
    ;;
  4)
    clear
