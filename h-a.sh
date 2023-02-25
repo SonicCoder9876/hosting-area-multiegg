@@ -4,7 +4,7 @@ clear
 function installJava {
 
 if which java >/dev/null; then
-echo "Error: Java already installed!, do you want to uninstall it? (Y/N)"
+echo "Java detected, want to uninstall it? (Y/N)"
 read -p "Choose: " n
 case $n in
 y)
