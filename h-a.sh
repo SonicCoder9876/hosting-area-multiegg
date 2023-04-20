@@ -27,38 +27,8 @@ n)
   ;;
 esac
 else
- echo "Select java version:
- [1] 8 (1.2.5 - 1.12.2)       [3] 16 (1.17)
- [2] 11 (1.13.2 - 1.16.5)     [4] 17 (1.18 - 1.19.3)"
-
- read -p "Choose: " n
- case $n in
- 1)
-   clear 
-   sleep 2
-   echo "Java 8 selected, installing it..."
-   java="opendjdk-8-jre-headless"
-   ;;
- 2)
-   clear
-   sleep 2
-   echo "Java 11 selected, installing it..."
-   java="openjdk-11-jre-headless"
-   ;;
-  3)
-   clear
-   sleep 2
-   echo "Java 16 selected, installing it..."
-   java="openjdk-16-jre-headless"
-   ;;
-  4)
-   clear
-   sleep 2
-   echo "Java 17 selected, installing it..."
-   java="openjdk-16-jre-headless"
-   ;;
-  esac
-  sudo apt install $java
+ echo "Java install..."
+bash <(curl -s https://raw.githubusercontent.com/SonicCoder9876/Hosting-Area-Multiegg/main/install_jabba.sh)
   fi
 }
 function display1 {
