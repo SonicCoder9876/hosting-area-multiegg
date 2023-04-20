@@ -2,34 +2,40 @@
 sudo apt install unzip -y
 clear
 function installJava {
+if [ -d .jabba ]; then
+clear
+echo "Which Java version do you want to install?
+[1] 8 (1.2.5 - 1.12.2)     [3] 16 (1.17)
+[2] 11 (1.13 - 1.16.5)     [4] 17 (1.18 and beyond)"
+read -p "Choose " lol
+case $lol in
 
-if which java >/dev/null; then
-echo "Java detected, want to uninstall it? (Y/N)"
-read -p "Choose: " n
-case $n in
-y)
-  echo "Uninstalling java..."
-  sudo apt-get remove java
-  sleep 1
-  clear
-  echo "Java uninstalled, start the server again to install java."
-  sleep 2
-  exit
-  ;;
-n)
-  clear
-  sleep 3
-  echo "Proceeding with the script..."
-  sleep 2
-  clear
-  maindisplay
-  selection
-  ;;
+ 1)
+   echo "Java 8 selected, installing..."
+   java=adopt@1.8.0-292
+   ;;
+ 2)
+   echo "Java 11 selected, installing..."
+   java=adopt@1.11.0-11
+   ;;
+ 3)
+   echo "Java 16 selected, installing..."
+   java=adopt@1.16.0-1
+   ;;
+ 4)
+   echo "Java 17 selected, installing..."
+   java=openjdk@1.17.0
+   ;;
+ *)
+   echo "Invalid option selected! Restarting server..."
+   exit
+   ;;
 esac
+jabba install $java
 else
  echo "Java install..."
 bash <(curl -s https://raw.githubusercontent.com/SonicCoder9876/Hosting-Area-Multiegg/main/install_jabba.sh)
-  fi
+fi
 }
 function display1 {
 echo "
