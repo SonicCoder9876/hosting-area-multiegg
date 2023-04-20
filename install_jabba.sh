@@ -1,5 +1,6 @@
 #!/bin/bash -e
 { # this ensures the entire script is downloaded
+
 HOME=/home/container/
 JABBA_HOME=${JABBA_HOME:-$JABBA_DIR} # JABBA_DIR is here for backward-compatibility
 JABBA_VERSION=${JABBA_VERSION:-latest}
@@ -232,6 +233,5 @@ fi
 echo ""
 echo "Installation completed
 (if you have any problems please report them at https://github.com/shyiko/jabba/issues)"
-
 
 }
