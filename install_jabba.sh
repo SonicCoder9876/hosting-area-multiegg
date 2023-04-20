@@ -232,3 +232,6 @@ fi
 echo ""
 echo "Installation completed
 (if you have any problems please report them at https://github.com/shyiko/jabba/issues)"
+
+
+}
