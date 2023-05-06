@@ -2,9 +2,9 @@
 sudo apt install unzip -y
 clear
 function installJava {
-if [ -d .jabba ]; then
+if [ -d /root/.jabba ]; then
 clear
-echo "Which Java version do you want to install?
+echo "Which Java version do you want to use?
 [1] 8 (1.2.5 - 1.12.2)     [3] 16 (1.17)
 [2] 11 (1.13 - 1.16.5)     [4] 17 (1.18 and beyond)"
 read -p "Choose " lol
@@ -31,10 +31,8 @@ case $lol in
    exit
    ;;
 esac
-jabba install $java
+jabba alias default $java
 else
- echo "Java install..."
-bash <(curl -s https://raw.githubusercontent.com/SonicCoder9876/Hosting-Area-Multiegg/main/install_jabba.sh)
 fi
 }
 function display1 {
@@ -127,8 +125,8 @@ case $n in
        clear
        sleep 1 
        echo "1.12.2 Selected, downloading..."
-       wget -q --show-progress https://data-2.cdnx.fun/mc/vanilla-1.12.2.jar
-       mv vanilla-1.12.2.jar server.jar
+       wget -q --show-progress https://serverjars.com/api/fetchJar/servers/vanilla/1.12.2
+       mv 1.12.2 server.jar
        echo "Proceeding to java installation..."
        clear
        sleep 2
