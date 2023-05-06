@@ -33,7 +33,9 @@ case $lol in
 esac
 jabba alias default $java
 else
+
 echo "nothing lol"
+
 fi
 }
 function display1 {
