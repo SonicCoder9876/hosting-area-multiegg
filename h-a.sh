@@ -2,7 +2,7 @@
 sudo apt install unzip -y
 clear
 function installJava {
-if [ -d /root/.jabba ]; then
+if [ -d /home/container/.jabba ]; then
 clear
 echo "Which Java version do you want to use?
 [1] 8 (1.2.5 - 1.12.2)     [3] 16 (1.17)
