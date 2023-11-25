@@ -2,6 +2,8 @@
 sudo apt install unzip -y
 clear
 function installJava {
+if [ -d .jabba ]; then
+echo "Java manager detected, proceeding..."
 clear
 echo "Which Java version do you want to use?
 [1] 8 (1.2.5 - 1.12.2)     [3] 16 (1.17)
@@ -31,6 +33,26 @@ case $lol in
    ;;
 esac
 jabba alias default $java
+else
+echo "Java manager not detected. Installing java manager and java versions..."
+export JABBA_VERSION=0.11.2
+curl -sL https://github.com/shyiko/jabba/raw/master/install.sh | bash && . ~/.jabba/jabba.sh
+clear
+jabba install adopt@1.8.0-292
+sleep 2
+clear
+jabba install adopt@1.11.0-11
+sleep 2
+clear
+jabba install adopt@1.16.0-1
+sleep 2
+clear
+jabba install openjdk@1.17.0
+sleep 2
+clear
+echo "Done! Please start the server again."
+exit
+fi
 }
 function display1 {
 echo "
@@ -275,7 +297,8 @@ case $n in
 esac
 }
 function bootJavaServer {
- java -Xms1024M -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true -jar server.jar nogui
+  ram="$1"
+ java -Xmx"${ram}M" -Xms128M -jar server.jar nogui
 }
 
 function maindisplay {
@@ -307,7 +330,7 @@ if [ -f server.jar ]
 then
    display1
    echo "Minecraft Java detected, starting it up..."
-   bootJavaServer
+   bootJavaServer "$1"
 else
   maindisplay
   selection
